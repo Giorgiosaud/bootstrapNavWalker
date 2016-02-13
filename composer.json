@@ -1,0 +1,11 @@
+{
+    "name": "jorgelsaud/bootstrap-nav-walker",
+    "description": "Bootstrap Nav Walker for wordpress",
+    "authors": [
+        {
+            "name": "Giorgiosaud",
+            "email": "jorgelsaud@gmail.com"
+        }
+    ],
+    "require": {}
+}
