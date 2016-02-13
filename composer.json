@@ -1,11 +1,17 @@
 {
-    "name": "jorgelsaud/bootstrap-nav-walker",
-    "description": "Bootstrap Nav Walker for wordpress",
-    "authors": [
-        {
-            "name": "Giorgiosaud",
-            "email": "jorgelsaud@gmail.com"
-        }
-    ],
-    "require": {}
+	"name": "jorgelsaud/bootstrap-nav-walker",
+	"description": "Bootstrap Nav Walker for wordpress",
+	"license": "MIT",
+	"authors": [
+	{
+		"name": "Giorgiosaud",
+		"email": "jorgelsaud@gmail.com"
+	}
+	],
+	"autoload":{
+		"psr-4": {
+			"ZpBootstrap\\": "src/"
+		}
+	},
+	"require": {}
 }
