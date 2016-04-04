@@ -1,4 +1,6 @@
 <?php
+namespace jorgelsaud\WordpressTools;
+use Walker_Nav_Menu;
 
 class NavWalker extends Walker_Nav_Menu {
 
