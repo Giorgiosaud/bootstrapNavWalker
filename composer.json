@@ -13,5 +13,7 @@
 			"jorgelsaud\\WordpressTools\\": "src/"
 		}
 	},
-	"require": {}
+	"require": {
+		"jorgelsaud/bootstrap-nav-walker": "^0.0.1"
+	}
 }
