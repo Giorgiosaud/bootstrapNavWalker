@@ -142,7 +142,19 @@ To set a disabled link simply set the **Title Attribute** to `disabled` and the 
 
 ![Header Example](http://edwardmcintyre.com/pub/github/navwalker-3-disabled.jpg)
 
+Only Icons
+------------
+To set icon of Font awesome only linksimply set the **Title Attribute** to `only-icon` and the class will do the rest. 
+
+![Header Example](http://edwardmcintyre.com/pub/github/navwalker-3-disabled.jpg)
+
 Changelog
+------------
+
+**2.1**
+Added only icon feature
+
+Previous this changes
 ------------
 **2.0.4**
 + Updated fallback function to accept args array from wp_nav_menu
