@@ -60,7 +60,7 @@ class NavWalker extends Walker_Nav_Menu {
 			$output .= $indent . '<li role="presentation" class="dropdown-header">' . esc_attr( $item->title );
 		} else if ( strcasecmp($item->attr_title, 'disabled' ) == 0 ) {
 			$output .= $indent . '<li role="presentation" class="disabled"><a href="#">' . esc_attr( $item->title ) . '</a>';
-		}else {
+		} else {
 
 			$class_names = $value = '';
 
@@ -85,6 +85,8 @@ class NavWalker extends Walker_Nav_Menu {
 			if ( in_array('fa', $classes)) {
 				$key = array_search('fa', $classes);
 				$icon = $classes[$key + 1];
+				if ( strcasecmp($item->attr_title, 'only-icon' ) != 0 )
+					$icon.=' onlyIcon';
 				$class_names = str_replace($classes[$key+1], '', $class_names);
 				$class_names = str_replace($classes[$key], '', $class_names);
 
@@ -131,9 +133,8 @@ class NavWalker extends Walker_Nav_Menu {
 				$item_output .= '<a'. $attributes .'><span class="fa ' . esc_attr( $icon ) . '"></span>&nbsp;';
 			else
 				$item_output .= '<a'. $attributes .'>';	
-			if ( strcasecmp($item->attr_title, 'icon' ) != 0 )
+			if ( strcasecmp($item->attr_title, 'only-icon' ) != 0 )
 				$item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
-			$item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
 			$item_output .= ( $args->has_children && 0 === $depth ) ? ' <span class="glyphicon glyphicon-chevron-right"></span></a>' : '</a>';
 			$item_output .= $args->after;
 
