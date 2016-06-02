@@ -52,7 +52,9 @@ class NavWalker extends Walker_Nav_Menu {
 		 * comparison that is not case sensitive. The strcasecmp() function returns
 		 * a 0 if the strings are equal.
 		 */
-		if(isset($item->attr_title)){
+		if(!isset($item->attr_title)){
+			$item->attr_title='';
+		}
 			if ( strcasecmp( $item->attr_title, 'divider' ) == 0 && $depth === 1 ) {
 				$output .= $indent . '<li role="presentation" class="divider">';
 			}else if( strcasecmp( $item->title, 'divider') == 0 ) {
@@ -63,7 +65,7 @@ class NavWalker extends Walker_Nav_Menu {
 				$output .= $indent . '<li role="presentation" class="dropdown-header">' . esc_attr( $item->title );
 			} else if ( strcasecmp($item->attr_title, 'disabled' ) == 0 ) {
 				$output .= $indent . '<li role="presentation" class="disabled"><a href="#">' . esc_attr( $item->title ) . '</a>';
-			} else {
+			}
 
 				$class_names = $value = '';
 
@@ -85,7 +87,18 @@ class NavWalker extends Walker_Nav_Menu {
 				// remove Font Awesome icon from classes array and save the icon
 				// we will add the icon back in via a <span> below so it aligns with
 				// the menu item
+				if ( in_array('socicon', $classes)) {
+					$font='socicon';
+					$key = array_search('socicon', $classes);
+					$icon = $classes[$key + 1];
+					if ( strcasecmp($item->attr_title, 'only-icon' ) == 0 )
+						$icon.=' onlyIcon';
+					$class_names = str_replace($classes[$key+1], '', $class_names);
+					$class_names = str_replace($classes[$key], '', $class_names);
+
+				}
 				if ( in_array('fa', $classes)) {
+					$font='fa';
 					$key = array_search('fa', $classes);
 					$icon = $classes[$key + 1];
 					if ( strcasecmp($item->attr_title, 'only-icon' ) == 0 )
@@ -133,7 +146,7 @@ class NavWalker extends Walker_Nav_Menu {
 
 				// Font Awesome icons
 				if ( ! empty( $icon ) )
-					$item_output .= '<a'. $attributes .'><span class="fa ' . esc_attr( $icon ) . '"></span>&nbsp;';
+					$item_output .= '<a'. $attributes .'><span class="'.$font.' '. esc_attr( $icon ) . '"></span>&nbsp;';
 				else
 					$item_output .= '<a'. $attributes .'>';	
 				if ( strcasecmp($item->attr_title, 'only-icon' ) != 0 )
@@ -143,8 +156,6 @@ class NavWalker extends Walker_Nav_Menu {
 
 				$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
 			}
-		}
-	}
 
 	/**
 	 * Traverse elements to create list from elements.
