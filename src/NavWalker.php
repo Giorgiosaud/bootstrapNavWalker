@@ -71,6 +71,7 @@ class NavWalker extends Walker_Nav_Menu {
 
 				$classes = empty( $item->classes ) ? array() : (array) $item->classes;
 				$classes[] = 'menu-item-' . $item->ID;
+				$classes[]='nav-item';
 
 				$class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args ) );
 
@@ -119,7 +120,6 @@ class NavWalker extends Walker_Nav_Menu {
 				$atts['title']  = ! empty( $item->title )	? $item->title	: '';
 				$atts['target'] = ! empty( $item->target )	? $item->target	: '';
 				$atts['rel']    = ! empty( $item->xfn )		? $item->xfn	: '';
-
 				// If item has_children add atts to a.
 				// if ( $args->has_children && $depth === 0 ) {
 				if ( $args->has_children ) {
@@ -130,6 +130,7 @@ class NavWalker extends Walker_Nav_Menu {
 
 				} else {
 					$atts['href'] = ! empty( $item->url ) ? $item->url : '';
+					$atts['class'] = ! empty( $item->url ) ? 'nav-link' : '';
 				}
 
 				$atts = apply_filters( 'nav_menu_link_attributes', $atts, $item, $args );
