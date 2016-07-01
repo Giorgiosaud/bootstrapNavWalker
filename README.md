@@ -4,9 +4,25 @@
 wp-bootstrap-navwalker
 ======================
 
-**A custom WordPress nav walker class to fully implement the Bootstrap 3.0+ navigation style in a custom theme using the WordPress built in menu manager.**
+**A custom WordPress nav walker class to fully implement the Bootstrap 4.0+ navigation style in a custom theme using the WordPress built in menu manager.**
 
 ![Extras](http://edwardmcintyre.com/pub/github/navwalker-3-menu.jpg)
+Bootstrap 4.0
+------------
+To can support Bootsprap 4 alpha you need to use the >3 ver of this package
+------------
+add this to your functions file
+```php
+add_filter('get_custom_logo','change_logo_class');
+
+
+function change_logo_class($html)
+{
+    $html = str_replace('class="custom-logo"', 'img-fluid', $html);
+    $html = str_replace('class="custom-logo-link"', 'navbar-brand', $html);
+    return $html;
+}
+```
 
 Bootstrap 2.x vs Bootstrap 3.0
 ------------
@@ -85,8 +101,8 @@ Typically the menu is wrapped with additional markup, here is an example of a ` 
                 'theme_location'    => 'primary',
                 'depth'             => 2,
                 'container'         => 'div',
-                'container_class'   => 'collapse navbar-collapse',
-        'container_id'      => 'bs-example-navbar-collapse-1',
+                'container_class'   => 'nav navbar-nav',
+        'container_id'      => 'exCollapsingNavbar2',
                 'menu_class'        => 'nav navbar-nav',
                 'fallback_cb'       => '\jorgelsaud\WordpressTools\NavWalker::fallback',
                 'walker'            => new \jorgelsaud\WordpressTools\NavWalker())

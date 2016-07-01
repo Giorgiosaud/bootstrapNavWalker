@@ -12,5 +12,8 @@
 		"psr-4": {
 			"jorgelsaud\\WordpressTools\\": "src/"
 		}
+	},
+	"require-dev": {
+		"jorgelsaud/bootstrap-nav-walker": "^2.5"
 	}
 }
