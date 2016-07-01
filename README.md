@@ -70,22 +70,16 @@ register_nav_menus( array(
 Typically the menu is wrapped with additional markup, here is an example of a ` navbar-fixed-top` menu that collapse for responsive navigation.
 
 ```php
-<nav class="navbar navbar-default" role="navigation">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="<?php echo home_url(); ?>">
-                <?php bloginfo('name'); ?>
-            </a>
-    </div>
+<nav class="navbar navbar-light bg-faded">
+  <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2">
+    &#9776;
+  </button>
+  <div class="collapse navbar-toggleable-xs" id="exCollapsingNavbar2">
+    <a class="navbar-brand" href="<?php echo home_url(); ?>">
+        <?php bloginfo('name'); ?>
+    </a>
 
-        <?php
+    <?php
             wp_nav_menu( array(
                 'menu'              => 'primary',
                 'theme_location'    => 'primary',
@@ -98,7 +92,7 @@ Typically the menu is wrapped with additional markup, here is an example of a ` 
                 'walker'            => new \jorgelsaud\WordpressTools\NavWalker())
             );
         ?>
-    </div>
+  </div>
 </nav>
 ```
 
@@ -150,7 +144,14 @@ To set icon of Font awesome only linksimply set the **Title Attribute** to `only
 
 Changelog
 ------------
-
+**3.0**
+Support For Work With Bootstrap 4
+**2.4**
+compatible with bt4
+**2.3**
+Resolved Issue with attr not defined
+**2.2**
+Add class to only icon (icononly)
 **2.1**
 Added only icon feature
 
