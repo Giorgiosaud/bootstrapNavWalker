@@ -13,7 +13,7 @@
 			"jorgelsaud\\WordpressTools\\": "src/"
 		},
 		"files":[
-			"src/functions.php"
+			"functions/functions.php"
 		]
 	},
 }
