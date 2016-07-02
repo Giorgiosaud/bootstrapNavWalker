@@ -11,9 +11,9 @@
 	"autoload":{
 		"psr-4": {
 			"jorgelsaud\\WordpressTools\\": "src/"
-		}
+		},
+		"files":[
+			"src/functions.php"
+		]
 	},
-	"require-dev": {
-		"jorgelsaud/bootstrap-nav-walker": "^2.5"
-	}
 }

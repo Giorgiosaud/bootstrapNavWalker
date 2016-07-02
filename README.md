@@ -10,7 +10,24 @@ wp-bootstrap-navwalker
 Bootstrap 4.0
 ------------
 To can support Bootsprap 4 alpha you need to use the >3 ver of this package
+
+Installation
 ------------
+go to your theme folder with composer installed and autoloaded in functions.php
+
+to import
+```
+composer require jorgelsaud/bootstrap-nav-walker
+```
+
+
+Open your WordPress themes **functions.php** file  `/wp-content/your-theme/functions.php` and add the following code:
+
+```php
+// Register Custom Navigation Walker
+require_once('vendor/autoload.php');
+
+```
 add this to your functions file
 ```php
 add_filter('get_custom_logo','change_logo_class');
@@ -23,6 +40,8 @@ function change_logo_class($html)
     return $html;
 }
 ```
+
+
 
 Bootstrap 2.x vs Bootstrap 3.0
 ------------
