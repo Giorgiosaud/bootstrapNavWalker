@@ -117,7 +117,7 @@ class NavWalker extends Walker_Nav_Menu {
 				$output .= $indent . '<li' . $id . $value . $class_names .'>';
 
 				$atts = array();
-				$atts['title']  = ! empty( $item->title )	? $item->title	: '';
+				$atts['title']  = ! empty( $item->title )	? apply_filters( 'the_title', $item->title)	: '';
 				$atts['target'] = ! empty( $item->target )	? $item->target	: '';
 				$atts['rel']    = ! empty( $item->xfn )		? $item->xfn	: '';
 				// If item has_children add atts to a.
