@@ -41,7 +41,13 @@ function change_logo_class($html)
 }
 ```
 
+register your own menu adding this to functions.php
 
+```php
+register_nav_menus( array(
+    'primary' => __( 'Primary Menu', 'THEMENAME' ),
+) );
+```
 
 Bootstrap 2.x vs Bootstrap 3.0
 ------------
